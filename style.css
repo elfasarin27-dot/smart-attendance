@@ -1,0 +1,267 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #2e4773, #0258e2);
+    color: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 25px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* JUDUL */
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* BUTTON */
+button {
+    padding: 10px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    background: linear-gradient(135deg, #0281cf, #0068a8);
+    color: white;
+    transition: 0.2s ease;
+    box-shadow: 0 4px 10px rgba(234, 236, 238, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(110, 157, 179, 0.3);
+}
+
+/* VIDEO */
+video {
+    margin-top: 15px;
+    border-radius: 12px;
+    border: 3px solid #3e48d2;
+    box-shadow: 0 0 15px rgba(0, 100, 200, 0.3);
+}
+
+/* STATUS BOX */
+#statusBox {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#statusLamp {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgb(0, 255, 8);
+}
+
+#statusText {
+    font-weight: bold;
+}
+
+/* HASIL */
+#hasil {
+    margin-top: 15px;
+    font-size: 22px;
+    color: #5b66a8;
+}
+
+/* FACE STATUS */
+#faceStatus {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* INPUT */
+input {
+    padding: 10px;
+    width: 240px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgb(255, 255, 255);
+    outline: none;
+}
+
+/* PREVIEW IMAGE */
+#preview {
+    margin-top: 10px;
+    border-radius: 12px;
+    border: 3px solid rgb(64, 125, 173);
+    box-shadow: 0 0 10px rgba(119, 133, 227, 0.2);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: linear-gradient(135deg, #0025c8, #1b9dd0);
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+tr:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+/* HISTORY */
+#historyBox {
+    margin-top: 20px;
+}
+
+#historyList {
+    list-style: none;
+    padding: 0;
+}
+
+#historyList li {
+    padding: 10px;
+    margin: 6px 0;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+#historyList li:hover {
+    transform: translateX(5px);
+    background: rgba(0,200,150,0.15);
+}
+
+.input-group {
+    margin-top: 10px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #008ae6;
+    font-weight: bold;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 70%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: zoomIn 0.2s ease;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+@media screen and (max-width: 768px) {
+
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    #preview {
+        width: 180px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    table {
+        font-size: 12px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+    }
+
+    #calendarFilter button {
+        width: auto;
+        margin: 4px;
+        font-size: 12px;
+    }
+
+    #absensiChart {
+        width: 100% !important;
+        height: auto !important;
+    }
+}

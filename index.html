@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Deteksi Masker AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>😷 Deteksi Masker AI</h1>
+
+        <button onclick="init()">
+            Mulai Kamera
+        </button>
+
+        <button onclick="captureWajah()">
+        Ambil Wajah
+        </button>
+
+        <br><br>
+
+        <video
+            id="video"
+            autoplay
+            muted
+            playsinline
+        ></video>
+
+        <canvas
+            id="snapshot"
+            width="320"
+            height="240"
+            style="
+                display:none;
+            "
+        ></canvas>
+
+        <div id="statusBox">
+
+            <div id="statusLamp"></div>
+
+            <div id="statusText">
+                Sistem Siap
+            </div>
+
+        </div>
+
+        <h2 id="hasil">
+            Menunggu deteksi...
+        </h2>
+
+        <div id="faceStatus">
+        ❌ Tidak Ada Wajah
+        </div>
+
+        <div id="namaStatus"></div>
+
+        <h3>Hasil Capture</h3>
+
+        
+
+        <div class="input-group">
+            <label>Nama Peserta</label>
+            <input id="namaInput" placeholder="Contoh: Maya">
+        </div>
+
+        <img
+            id="preview"
+            width="220"
+            style="
+                border-radius:12px;
+                border:3px solid rgb(255, 255, 255);
+            "
+        >
+
+        <h3>Data Absensi</h3>
+
+        <select id="filterAbsensi" onchange="filterData()">
+            <option value="all">Semua Data</option>
+            <option value="today">Hari Ini</option>
+        </select>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari nama..."
+            oninput="searchData()"
+        />
+
+        <button onclick="exportExcel()">Export Excel</button>
+        <button onclick="resetData()">Reset Data</button>
+
+        <table id="absensiTable">
+
+            <tr>
+
+                <th>Nama</th>
+
+                <th>Status</th>
+
+                <th>Waktu</th>
+
+                <th>Foto</th>
+
+            </tr>
+
+        </table>
+
+        <div id="historyBox">
+
+            <h3>📊 Dashboard Absensi</h3>
+            <canvas id="absensiChart"></canvas>
+            
+            <h3>History Absensi</h3>
+
+            <div id="calendarFilter"></div>
+
+            <ul id="historyList"></ul>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.9.0/dist/tf.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    
+    <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg" class="modal-content">
+    </div>
+
+</body>
+
+</html>

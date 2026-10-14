@@ -1,0 +1,58 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<button onclick="startCamera()">
+Start Camera
+</button>
+
+<br><br>
+
+<video
+    id="video"
+    autoplay
+    playsinline
+    muted
+    width="400"
+></video>
+
+<script>
+
+async function startCamera(){
+
+    try{
+
+        const stream =
+            await navigator.mediaDevices
+            .getUserMedia({
+                video:true
+            });
+
+        const video =
+            document.getElementById("video");
+
+        video.srcObject = stream;
+
+        await video.play();
+
+        alert("Camera berhasil");
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        alert(error);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
